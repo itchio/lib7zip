@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.2)
+cmake_minimum_required(VERSION 3.12)
 
 project(lib7zip)
 
@@ -7,6 +7,7 @@ set (SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(
   ${UPSTREAM_INCLUDE_DIR}
   ${UPSTREAM_INCLUDE_DIR}/CPP
+  ${UPSTREAM_INCLUDE_DIR}/CPP/Common
   ${UPSTREAM_INCLUDE_DIR}/CPP/myWindows
   ${UPSTREAM_INCLUDE_DIR}/CPP/include_windows
 )
@@ -36,7 +37,7 @@ set (lib7zip_SOURCES
   ${UPSTREAM_DIR}/CPP/Common/MyWindows.cpp
   ${UPSTREAM_DIR}/CPP/Windows/PropVariant.cpp
 )
-
+add_custom_command(OUTPUT ${lib7zip_SOURCES} DEPENDS upstream-7zip COMMAND "")
 add_library(7zip STATIC ${lib7zip_SOURCES})
 
 target_compile_options(7zip PRIVATE -std=c++11)

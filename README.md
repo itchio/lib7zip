@@ -1,3 +1,4 @@
+> **Note:** This repository is archived. Development has moved to <https://github.com/itchio/libc7zip>.
 
 # lib7zip
 
